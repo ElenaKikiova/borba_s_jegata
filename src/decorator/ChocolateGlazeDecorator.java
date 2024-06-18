@@ -8,9 +8,14 @@ import java.util.List;
 public class ChocolateGlazeDecorator extends IceCreamToppingDecorator {
 
     public ChocolateGlazeDecorator(IceCream iceCream) {
-        super(Flavour.CHOCOLATE.getFlavour(),
+        super(Flavour.CHOCOLATE.getFlavour() ,
                 0.5,
-                List.of("Sugar", "Cocoa powder", "Milk"),
+                List.of("Sugar", "Cocoa powder", "Milk", "Glucose syrup"),
                 iceCream);
+    }
+
+    @Override
+    protected String getToppingName() {
+        return "Chocolate Glaze";
     }
 }

@@ -1,9 +1,9 @@
 package model;
 
 public enum Flavour {
-    CHOCOLATE("chocolate"),
-    VANILLA("vanilla"),
-    STRAWBERRY("strawberry");
+    CHOCOLATE("Chocolate ice cream"),
+    VANILLA("Vanilla ice cream"),
+    STRAWBERRY("Strawberry ice cream");
 
     private final String flavour;
 

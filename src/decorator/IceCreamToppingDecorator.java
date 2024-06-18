@@ -18,7 +18,7 @@ public abstract class IceCreamToppingDecorator extends IceCream {
     @Override
     public String getFlavour() {
         if (!Objects.isNull(iceCream)) {
-            return iceCream.getFlavour();
+            return iceCream.getFlavour() + ", " + getToppingName();
         } else {
             return "Topping";
         }
@@ -42,5 +42,7 @@ public abstract class IceCreamToppingDecorator extends IceCream {
             return ingredients;
         }
     }
+
+    protected abstract String getToppingName();
 
 }

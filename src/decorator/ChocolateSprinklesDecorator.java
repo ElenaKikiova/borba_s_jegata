@@ -10,7 +10,12 @@ public class ChocolateSprinklesDecorator extends IceCreamToppingDecorator {
     public ChocolateSprinklesDecorator(IceCream iceCream) {
         super(Flavour.CHOCOLATE.getFlavour(),
                 0.5,
-                List.of("Sugar", "Cocoa powder"),
+                List.of("Sugar", "Cocoa powder", "Starch"),
                 iceCream);
+    }
+
+    @Override
+    protected String getToppingName() {
+        return "Chocolate Sprinkles";
     }
 }
