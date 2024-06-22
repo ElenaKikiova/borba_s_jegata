@@ -15,6 +15,7 @@ public class Main {
         IceCream chocolateIceCreamWithGlaze = iceCreamShop.prepareIceCream(CHOCOLATE, List.of(CHOCOLATE_GLAZE));
         IceCream strawberryIceCreamWithSprinklesAndGlaze = iceCreamShop.prepareIceCream(STRAWBERRY, List.of(CHOCOLATE_SPRINKLES, CHOCOLATE_GLAZE));
         IceCream vanillaIceCreamWithGlaze = iceCreamShop.prepareIceCream(VANILLA, List.of(CHOCOLATE_GLAZE));
+        IceCream vanillaIceCreamWithJam = iceCreamShop.prepareIceCream(VANILLA, List.of(STRAWBERRY_JAM));
         IceCream strawberryIceCreamWithGlaze = iceCreamShop.prepareIceCream(STRAWBERRY, List.of(VANILLA_GLAZE));
         IceCream chocolateIceCreamWithSprinkles = iceCreamShop.prepareIceCream(CHOCOLATE, List.of(VANILLA_SPRINKLES));
 
@@ -24,7 +25,8 @@ public class Main {
                 strawberryIceCreamWithSprinklesAndGlaze,
                 vanillaIceCreamWithGlaze,
                 strawberryIceCreamWithGlaze,
-                chocolateIceCreamWithSprinkles
+                chocolateIceCreamWithSprinkles,
+                vanillaIceCreamWithJam
         );
 
         List<IceCream> AllIceCream = List.of(

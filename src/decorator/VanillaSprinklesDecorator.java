@@ -8,7 +8,7 @@ import java.util.List;
 public class VanillaSprinklesDecorator extends IceCreamToppingDecorator {
 
     public VanillaSprinklesDecorator(IceCream iceCream) {
-        super(Flavour.CHOCOLATE.getFlavour(),
+        super(Flavour.VANILLA.getFlavour(),
                 0.5,
                 List.of("Sugar", "Vanilla syrup", "Starch"),
                 iceCream);

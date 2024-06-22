@@ -55,6 +55,7 @@ public final class IceCreamShop {
             case CHOCOLATE_SPRINKLES -> new ChocolateSprinklesDecorator(iceCream);
             case VANILLA_GLAZE -> new VanillaGlazeDecorator(iceCream);
             case VANILLA_SPRINKLES -> new VanillaSprinklesDecorator(iceCream);
+            case STRAWBERRY_JAM -> new StrawberryJamDecorator(iceCream);
         };
     }
 }

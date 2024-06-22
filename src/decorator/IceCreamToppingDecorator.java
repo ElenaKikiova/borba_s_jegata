@@ -43,6 +43,17 @@ public abstract class IceCreamToppingDecorator extends IceCream {
         }
     }
 
+
+    @Override
+    public String getIngredientsString() {
+        if (!Objects.isNull(iceCream)) {
+            return String.join(", ", Stream.concat(ingredients.stream(), iceCream.getIngredients().stream())
+                    .distinct().toList());
+        } else {
+            return String.join(", ", ingredients);
+        }
+    }
+
     protected abstract String getToppingName();
 
 }
