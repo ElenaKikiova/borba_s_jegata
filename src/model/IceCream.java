@@ -28,4 +28,8 @@ public class IceCream {
         return ingredients;
     }
 
+    public String getIngredientsString() {
+        return String.join(", ", ingredients);
+    }
+
 }

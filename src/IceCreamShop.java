@@ -1,6 +1,4 @@
-import decorator.ChocolateGlazeDecorator;
-import decorator.ChocolateSprinklesDecorator;
-import decorator.IceCreamToppingDecorator;
+import decorator.*;
 import factory.AbstractIceCreamFactory;
 import model.Flavour;
 import model.IceCream;
@@ -26,7 +24,7 @@ public final class IceCreamShop {
 
     }
 
-    public IceCream sellIceCream(Flavour flavour, List<Topping> toppings) {
+    public IceCream prepareIceCream(Flavour flavour, List<Topping> toppings) {
         IceCream iceCream = abstractIceCreamFactory.prepareIceCream(flavour);
         return addToppings(toppings, iceCream);
     }
@@ -55,6 +53,8 @@ public final class IceCreamShop {
         return switch (topping) {
             case CHOCOLATE_GLAZE -> new ChocolateGlazeDecorator(iceCream);
             case CHOCOLATE_SPRINKLES -> new ChocolateSprinklesDecorator(iceCream);
+            case VANILLA_GLAZE -> new VanillaGlazeDecorator(iceCream);
+            case VANILLA_SPRINKLES -> new VanillaSprinklesDecorator(iceCream);
         };
     }
 }

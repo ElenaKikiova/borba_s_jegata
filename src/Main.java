@@ -3,26 +3,51 @@ import model.IceCream;
 import java.util.List;
 
 import static model.Flavour.*;
-import static model.Topping.CHOCOLATE_GLAZE;
-import static model.Topping.CHOCOLATE_SPRINKLES;
+import static model.Topping.*;
 
 public class Main {
 
     public static void main(String[] args) {
         IceCreamShop iceCreamShop = IceCreamShop.getInstance();
-        IceCream chocolateIceCream = iceCreamShop.sellIceCream(CHOCOLATE, List.of());
-        IceCream chocolateIceCreamWithGlaze = iceCreamShop.sellIceCream(CHOCOLATE, List.of(CHOCOLATE_GLAZE));
-        IceCream strawberryIceCreamWithSprinklesAndGlaze = iceCreamShop.sellIceCream(STRAWBERRY, List.of(CHOCOLATE_SPRINKLES, CHOCOLATE_GLAZE));
-        IceCream vanillaIceCreamWithGlaze = iceCreamShop.sellIceCream(VANILLA, List.of(CHOCOLATE_GLAZE));
+        IceCream chocolateIceCream = iceCreamShop.prepareIceCream(CHOCOLATE, List.of());
+        IceCream vanillaIceCream = iceCreamShop.prepareIceCream(VANILLA, List.of());
+        IceCream strawberryIceCream = iceCreamShop.prepareIceCream(STRAWBERRY, List.of());
+        IceCream chocolateIceCreamWithGlaze = iceCreamShop.prepareIceCream(CHOCOLATE, List.of(CHOCOLATE_GLAZE));
+        IceCream strawberryIceCreamWithSprinklesAndGlaze = iceCreamShop.prepareIceCream(STRAWBERRY, List.of(CHOCOLATE_SPRINKLES, CHOCOLATE_GLAZE));
+        IceCream vanillaIceCreamWithGlaze = iceCreamShop.prepareIceCream(VANILLA, List.of(CHOCOLATE_GLAZE));
+        IceCream strawberryIceCreamWithGlaze = iceCreamShop.prepareIceCream(STRAWBERRY, List.of(VANILLA_GLAZE));
+        IceCream chocolateIceCreamWithSprinkles = iceCreamShop.prepareIceCream(CHOCOLATE, List.of(VANILLA_SPRINKLES));
 
-        List<IceCream> SoldIceCreamList = List.of(chocolateIceCream, chocolateIceCreamWithGlaze, strawberryIceCreamWithSprinklesAndGlaze, vanillaIceCreamWithGlaze);
+        List<IceCream> SoldIceCreamList = List.of(
+                chocolateIceCream,
+                chocolateIceCreamWithGlaze,
+                strawberryIceCreamWithSprinklesAndGlaze,
+                vanillaIceCreamWithGlaze,
+                strawberryIceCreamWithGlaze,
+                chocolateIceCreamWithSprinkles
+        );
 
-        System.out.println("List of ice cream sold:");
-        System.out.format("%50s%30s%40s", "Flavour", "Price", "Ingredients");
+        List<IceCream> AllIceCream = List.of(
+                chocolateIceCream,
+                vanillaIceCream,
+                strawberryIceCream
+        );
+
+
+        System.out.println("MENU");
+        System.out.format("%-70s%-20s%-40s", "Item", "Price", "Ingredients");
+        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        AllIceCream
+                .forEach((iceCream) -> {
+                    System.out.format("%-70s%-20s%-40s\n", iceCream.getFlavour(), iceCream.getPrice(), iceCream.getIngredientsString());
+                });
+
+        System.out.println("\nList of ice cream sold:");
+        System.out.format("%-70s%-20s%-40s", "Ice cream", "Price", "Ingredients");
         System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         SoldIceCreamList
                 .forEach((iceCream) -> {
-                    System.out.format("%50s%30s%40s\n", iceCream.getFlavour(), iceCream.getPrice(), iceCream.getIngredients());
+                    System.out.format("%-70s%-20s%-40s\n", iceCream.getFlavour(), iceCream.getPrice(), iceCream.getIngredientsString());
                 });
     }
 }
